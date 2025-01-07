@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Somikyy Eat</h1>
+        <button class="button" id="cart-button" onclick="toggleCart()">Voir le panier (0 items, $0)</button>
+    </header>
+
+    <!-- Section de recherche -->
+    <section id="search">
+        <input type="text" id="search-bar" placeholder="Recherchez un plat..." oninput="searchMenu()">
+    </section>
+
+    <div class="container">
+        <div id="menu">
+            <h2 class="categories">Plats Principaux</h2>
+            <div class="row justify-content-center">
+                <div class="menu-item col-md-3">
+                    <img src="Img/pizza.jpg" alt="Pizza">
+                    <span>Pizza Margarita</span>
+                    <span>$10</span>
+                    <button class="button" onclick="addToCart('Pizza', 10)">Add to Cart</button>
+                </div>
+                <div class="menu-item col-md-3">
+                    <img src="Img/burger.jpg" alt="Burger">
+                    <span>Burger Double Steak</span>
+                    <span>$8</span>
+                    <button class="button" onclick="addToCart('Burger', 8)">Add to Cart</button>
+                </div>
+                <div class="menu-item col-md-3">
+                    <img src="Img/pasta.jpg" alt="Pasta">
+                    <span>Pasta Corbanara</span>
+                    <span>$12</span>
+                    <button class="button" onclick="addToCart('Pasta', 12)">Add to Cart</button>
+                </div>
+            </div>
+
+            <h2 class="categories">Salades</h2>
+            <div class="row justify-content-center">
+                <div class="menu-item col-md-3">
+                    <img src="Img/salade1.jpg" alt="Salad 1">
+                    <span>Salade Cesar</span>
+                    <span>$7</span>
+                    <button class="button" onclick="addToCart('Salad 1', 7)">Add to Cart</button>
+                </div>
+                <div class="menu-item col-md-3">
+                    <img src="Img/salade2.jpg" alt="Salad 2">
+                    <span>Salade Choux</span>
+                    <span>$6</span>
+                    <button class="button" onclick="addToCart('Salad 2', 6)">Add to Cart</button>
+                </div>
+                <div class="menu-item col-md-3">
+                    <img src="Img/salade3.jpg" alt="Salad 3">
+                    <span>Salade Broccolis</span>
+                    <span>$5</span>
+                    <button class="button" onclick="addToCart('Salad 3', 5)">Add to Cart</button>
+                </div>
+            </div>
+
+            <h2 class="categories">Boissons</h2>
+            <div class="row justify-content-center">
+                <div class="menu-item col-md-3">
+                    <img src="Img/drink1.png" alt="Drink 1">
+                    <span>Coca Cola</span>
+                    <span>$3</span>
+                    <button class="button" onclick="addToCart('Drink 1', 3)">Add to Cart</button>
+                </div>
+                <div class="menu-item col-md-3">
+                    <img src="Img/drink2.jpg" alt="Drink 2">
+                    <span>Coca Cola Cherry</span>
+                    <span>$5</span>
+                    <button class="button" onclick="addToCart('Drink 2', 4)">Add to Cart</button>
+                </div>
+                <div class="menu-item col-md-3">
+                    <img src="Img/drink3.jpg" alt="Drink 3">
+                    <span>Fanta</span>
+                    <span>$4</span>
+                    <button class="button" onclick="addToCart('Drink 3', 3)">Add to Cart</button>
+                </div>
+                <div class="menu-item col-md-3">
+                    <img src="Img/drink4.jpg" alt="Drink 4">
+                    <span>Sprite</span>
+                    <span>$4</span>
+                    <button class="button" onclick="addToCart('Drink 4', 2)">Add to Cart</button>
+                </div>
+                <div class="menu-item col-md-3">
+                    <img src="Img/drink5.jpg" alt="Drink 5">
+                    <span>Eau</span>
+                    <span>$2</span>
+                    <button class="button" onclick="addToCart('Drink 5', 5)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section témoignages -->
+        <section id="testimonials">
+            <h2>Ce que nos clients disent</h2>
+            <div class="testimonial-item">
+                <p>"La pizza Margarita était délicieuse et la livraison rapide!"</p>
+                <span>- Julie, Paris</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Un service excellent, la salade César est incroyable!"</p>
+                <span>- Marc, Lyon</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Les boissons sont fraîches, je reviendrai bientôt!"</p>
+                <span>- Claire, Marseille</span>
+            </div>
+        </section>
+
+        <div class="cart-box" id="cart" style="display: none;">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <p>Total: $<span id="total-price">0</span></p>
+            <button class="button" onclick="checkout()" disabled id="checkout-button">Payer</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-item">
+            <h3>Contact</h3>
+            <p>Email: contact@somikyy.com</p>
+            <p>Téléphone: +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-item">
+            <h3>Suivez-nous</h3>
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Twitter</a>
+        </div>
+        <div class="footer-item">
+            <h3>Informations</h3>
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">Conditions d'utilisation</a>
+        </div>
+    </div>
+    <p class="footer-text">© 2025 Somikyy Eat. Tous droits réservés.</p>
+</footer>
+</html>

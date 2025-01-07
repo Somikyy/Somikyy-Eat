@@ -21,7 +21,8 @@ Bienvenue sur le projet **Somikyy Eat** ! Ce site Web simule un menu de restaura
    git clone [https://github.com/votre-utilisateur](https://github.com/Somikyy/somikyy-eat.git)
    ```
 2. Structure des fichiers :
-```somikyy-eat/
+```
+somikyy-eat/
 ├── index.html       # Fichier HTML principal
 ├── styles.css       # Feuille de style CSS
 ├── script.js        # Code JavaScript pour la gestion du panier
@@ -36,7 +37,8 @@ Bienvenue sur le projet **Somikyy Eat** ! Ce site Web simule un menu de restaura
     ├── drink2.jpg
     ├── drink3.jpg
     ├── drink4.jpg
-    └── drink5.jpg```
+    └── drink5.jpg
+```
 
 ## Fonctionnement du projet
 Le menu est composé de trois catégories : Plats Principaux, Salades, et Boissons.
